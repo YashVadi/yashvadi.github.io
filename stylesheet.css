@@ -1,80 +1,477 @@
-  body,
-  td,
-  th,
-  tr,
-  p,
-  a {
-  	font-family: 'Titillium Web', Verdana, Helvetica, sans-serif;
-  	font-size: 1.1rem;
-  	font-weight: 400;
-  	color: #444;
+/* ==========================================================================
+   Site-Wide Fonts & Design Policy (shared across homepage, papers, and demos)
+   --------------------------------------------------------------------------
+   Fonts (single source of truth — loaded lazily by unicode-range & usage):
+     --font-sans  Lato (400/700 normal & italic, v25 woff2)
+     --font-mono  Source Code Pro (400–700 variable, v32 woff2)
+
+   Colors:
+     --bg            #ffffff  Page, button, and popover background.
+     --bg-code       #f7f7f5  Code listing, inline code & control surface.
+     --border        #e4e4e0  Hairline dividers & borders (~black!15).
+     --text          #000000  All primary content & paper metadata (prose,
+                              headings, authors, affiliations, venues, emails,
+                              captions, tables, references, code body/keywords).
+     --text-muted    #555555  Chrome ONLY: nav/link separators (/), footers,
+                              sidebar TOC, eq numbers, hover # anchors, Copy
+                              buttons, and code comments. Never use for main
+                              content or paper metadata.
+     --accent        #1772d0  Clickable links & active navigation ONLY. Never
+                              use for non-clickable elements or code keywords.
+     --accent-hover  #f09228  Hover/focus state for links & interactive chrome.
+     --highlight-bg  #ffffd0  Highlighted paper rows & :target jump highlights.
+     (Homepage-only accents: award badges #d40000 / #c64848, Miscellanea boxes.)
+
+   Typography:
+     Homepage (index.html): 32px title, 22px h2, 14px body (normal ~1.2 leading),
+                            13px footer.
+     Papers (paper.css):    32px title, 22px h2, 18px h3/abstract, 15px regular
+                            text (prose, authors, emails, affiliations, venue,
+                            top nav, TOC, eq numbers; 14px on mobile <= 640px),
+                            13px ONLY for LaTeX-\small equivalents (fig/table
+                            captions, tables, bibliography, code, algorithms,
+                            footnotes) and small UI chrome (footer, popups,
+                            Copy buttons). KaTeX math scaled to 1.14em.
+   ========================================================================== */
+
+/* Lato — latin-ext italic 400 */
+@font-face {
+  font-family: 'Lato';
+  font-style: italic;
+  font-weight: 400;
+  font-display: block;
+  src: url(https://fonts.gstatic.com/s/lato/v25/S6u8w4BMUTPHjxsAUi-qNiXg7eU0.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* Lato — latin italic 400 */
+@font-face {
+  font-family: 'Lato';
+  font-style: italic;
+  font-weight: 400;
+  font-display: block;
+  src: url(https://fonts.gstatic.com/s/lato/v25/S6u8w4BMUTPHjxsAXC-qNiXg7Q.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* Lato — latin-ext italic 700 */
+@font-face {
+  font-family: 'Lato';
+  font-style: italic;
+  font-weight: 700;
+  font-display: block;
+  src: url(https://fonts.gstatic.com/s/lato/v25/S6u_w4BMUTPHjxsI5wq_FQftx9897sxZ.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* Lato — latin italic 700 */
+@font-face {
+  font-family: 'Lato';
+  font-style: italic;
+  font-weight: 700;
+  font-display: block;
+  src: url(https://fonts.gstatic.com/s/lato/v25/S6u_w4BMUTPHjxsI5wq_Gwftx9897g.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* Lato — latin-ext normal 400 */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url(https://fonts.gstatic.com/s/lato/v25/S6uyw4BMUTPHjxAwXiWtFCfQ7A.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* Lato — latin normal 400 */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url(https://fonts.gstatic.com/s/lato/v25/S6uyw4BMUTPHjx4wXiWtFCc.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* Lato — latin-ext normal 700 */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url(https://fonts.gstatic.com/s/lato/v25/S6u9w4BMUTPHh6UVSwaPGQ3q5d0N7w.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* Lato — latin normal 700 */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  font-display: block;
+  src: url(https://fonts.gstatic.com/s/lato/v25/S6u9w4BMUTPHh6UVSwiPGQ3q5d0.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Source Code Pro — greek 400–700 (variable) */
+@font-face {
+  font-family: 'Source Code Pro';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: block;
+  src: url(https://fonts.gstatic.com/s/sourcecodepro/v32/HI_SiYsKILxRpg3hIP6sJ7fM7PqlPuvWnsUnxlC9.woff2) format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* Source Code Pro — latin-ext 400–700 (variable) */
+@font-face {
+  font-family: 'Source Code Pro';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: block;
+  src: url(https://fonts.gstatic.com/s/sourcecodepro/v32/HI_SiYsKILxRpg3hIP6sJ7fM7PqlM-vWnsUnxlC9.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* Source Code Pro — latin 400–700 (variable) */
+@font-face {
+  font-family: 'Source Code Pro';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: block;
+  src: url(https://fonts.gstatic.com/s/sourcecodepro/v32/HI_SiYsKILxRpg3hIP6sJ7fM7PqlPevWnsUnxg.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+:root {
+  --bg: #ffffff;
+  --bg-code: #f7f7f5;
+  --border: #e4e4e0;
+  --text: #000000;
+  --text-muted: #555555;
+  --accent: #1772d0;
+  --accent-hover: #f09228;
+  --highlight-bg: #ffffd0;
+  --font-sans: 'Lato', Helvetica, Arial, sans-serif;
+  --font-mono: 'Source Code Pro', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:focus,
+a:hover {
+  color: var(--accent-hover);
+  text-decoration: none;
+}
+
+h2 {
+  margin: 0;
+  font-weight: 400;
+  font-size: 22px;
+}
+
+.page {
+  width: 100%;
+  max-width: 816px;
+  margin: 0 auto;
+  padding: 8px;
+}
+
+.bio {
+  display: flex;
+  align-items: center;
+}
+
+.bio-text {
+  width: 63%;
+  padding: 2.5%;
+}
+
+.bio-photo {
+  width: 37%;
+  padding: 2.5%;
+}
+
+.bio-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.name {
+  padding-top: 20px;
+  margin: 0;
+  font-weight: 400;
+  font-size: 32px;
+  text-align: center;
+}
+
+.bio-links {
+  text-align: center;
+  color: var(--text-muted);
+}
+
+.section-header {
+  padding: 16px;
+}
+
+.highlight {
+  background-color: var(--highlight-bg);
+}
+
+.papers {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.paper,
+.misc-row {
+  display: grid;
+  grid-template-columns: 192px minmax(0, 1fr);
+  align-items: center;
+}
+
+.paper.highlighted {
+  background-color: var(--highlight-bg);
+}
+
+.paper-media,
+.misc-badge {
+  padding: 16px;
+}
+
+.misc-badge {
+  text-align: center;
+}
+
+.org-media {
+  padding: 16px;
+  text-align: center;
+}
+
+.org-media img {
+  display: block;
+  width: 100%;
+  max-width: 160px;
+  height: 112px;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+.paper-info,
+.misc-links {
+  padding: 8px;
+}
+
+.papertitle {
+  font-size: inherit;
+  font-weight: 700;
+}
+
+.paper-links {
+  color: var(--text-muted);
+}
+
+.paper-authors {
+  text-wrap: balance;
+}
+
+.paper-authors a,
+.paper-authors strong,
+.paper-authors .author {
+  white-space: nowrap;
+}
+
+.award {
+  color: #d40000;
+}
+
+.award-highlight {
+  color: #c64848;
+}
+
+.paper-desc {
+  margin: 14px 0 0;
+}
+
+.one {
+  width: 160px;
+  height: 160px;
+  position: relative;
+}
+
+.one-short,
+.one-short .two {
+  height: 120px;
+}
+
+.two {
+  width: 160px;
+  height: 160px;
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.one img,
+.paper-media > img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.one video {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+@media (hover: hover) {
+  .paper:hover > .paper-media > .one > .two {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+.paper.hover-active > .paper-media > .one > .two {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.colored-box {
+  color: var(--text);
+  padding: 20px;
+  display: inline-block;
+  border-radius: 10px;
+}
+
+.plain-list {
+  padding: 0 16px;
+}
+
+.plain-list p {
+  display: grid;
+  grid-template-columns: 140px minmax(0, 1fr);
+  margin: 0 0 10px;
+}
+
+.plain-date {
+  font-weight: 700;
+}
+
+.site-footer {
+  text-align: right;
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 18px;
+}
+
+@media (max-width: 640px) {
+  .page {
+    padding: 0;
   }
 
-  a {
-  	color: #1772d0;
-  	text-decoration: none;
+  .bio {
+    flex-direction: column-reverse;
   }
 
-  a:focus,
-  a:hover {
-  	color: #f09220;
-  	text-decoration: none;
+  .bio-text {
+    width: 100%;
+    padding: 8px 16px;
   }
 
-  strong {
-  	/* font-family: 'Roboto', sans-serif; */
-  	font-size: 1rem;
-  	font-weight: 600
+  .bio-photo {
+    width: 100%;
+    padding: 20px 16px 0;
+    text-align: center;
   }
 
-  heading {
-	font-family: 'Titillium Web', Verdana, Helvetica, sans-serif;
-	font-size: 18px;
-	font-weight: 600
+  .bio-photo img {
+    width: 148px;
+    margin: 0 auto;
   }
 
-  papertitle {
-  	/* font-family: 'Roboto', sans-serif; */
-  	font-size: 16px;
-  	font-weight: 600
+  .name {
+    padding-top: 8px;
+    font-size: 28px;
   }
 
-  name {
-	font-family: 'Titillium Web', Verdana, Helvetica, sans-serif;
-	font-size: 32px;
-	font-weight: 500
+  .paper,
+  .misc-row {
+    grid-template-columns: 124px minmax(0, 1fr);
   }
 
-  .one {
-	width: 160px;
-	height: 160px;
-	position: relative;
+  .paper-media,
+  .misc-badge,
+  .org-media {
+    padding: 12px 8px 12px 12px;
   }
 
+  .paper-info,
+  .misc-links {
+    padding: 10px 12px 10px 6px;
+  }
+
+  .one,
   .two {
-	width: 160px;
-	height: 160px;
-	position: absolute;
-	transition: opacity .2s ease-in-out;
-	-moz-transition: opacity .2s ease-in-out;
-	-webkit-transition: opacity .2s ease-in-out;
+    width: 104px;
+    height: 104px;
   }
 
-  .fade {
-	transition: opacity .2s ease-in-out;
-	-moz-transition: opacity .2s ease-in-out;
-	-webkit-transition: opacity .2s ease-in-out;
-  }
-  
-  span.highlight {
-  	background-color: #ffffd0;
+  .one-short,
+  .one-short .two {
+    height: 78px;
   }
 
-  .img-hover-zoom img {
-  	transition: transform .5s ease;
+  .colored-box {
+    padding: 12px 8px;
+    width: 104px;
   }
 
-  .img-hover-zoom:hover img {
-  	transform: scale(1.2);
-  	box-shadow: 4px 4px 4px 4px rgba(68, 68, 68, 0.6);
+  .colored-box h2 {
+    font-size: 15px;
   }
+
+  .org-media img {
+    max-width: 104px;
+    height: 78px;
+  }
+
+  .plain-list {
+    padding: 0 16px;
+  }
+
+  .plain-date {
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  .plain-list p {
+    grid-template-columns: 1fr;
+  }
+
+  .site-footer {
+    padding: 0 16px;
+  }
+}

@@ -17,10 +17,10 @@
         <div class="bio-text">
           <h1 class="name">Yash Vadi</h1>
           <p>
-            I am a <strong>Research Engineer</strong> on the AI Search team at <a href="https://www.servicenow.com/">ServiceNow</a> in Toronto. My work focuses on data curation, relevance evaluation, and ranking for enterprise search.
+            I am a <strong>Research Engineer</strong> on the AI Search team at <a href="https://www.servicenow.com/">ServiceNow</a> in Toronto. My work focuses on improving the search relevancy by evaluating differnt retrivel, reranking methods.
           </p>
           <p>
-            Previously, I worked on document intelligence at ServiceNow Research, including invoice information extraction, long-table extraction, layout-aware synthetic data, and PII redaction. I completed an M.Sc. in Computer Science (Machine Learning) at the <a href="https://diro.umontreal.ca/english/home/">Universit&eacute; de Montr&eacute;al</a>, where I was affiliated with <a href="https://mila.quebec/en/">Mila</a>. My interests include machine learning, NLP, information retrieval, computer vision, and multimodal learning.
+            Previously, I worked in Multimodal and Document AI team at ServiceNow, for evaluating and improving the document extraction flows. I completed an M.Sc. in Computer Science (Machine Learning) at the <a href="https://diro.umontreal.ca/english/home/">Universit&eacute; de Montr&eacute;al</a>, where I was affiliated with <a href="https://mila.quebec/en/">Mila</a>. My interests include machine learning, NLP, information retrieval, computer vision, and multimodal learning.
           </p>
           <p class="bio-links">
             <a href="mailto:yash.vadi@yahoo.com">Email</a> &nbsp;/&nbsp;
@@ -54,39 +54,58 @@
         <div class="misc-row">
           <div class="org-media"><img src="images/servicenow_logo.png" alt="ServiceNow logo" loading="lazy"></div>
           <div class="misc-links">
-            <div><strong>Research Engineer, AI Search</strong></div>
-            <div>September 2025 - Present &nbsp;|&nbsp; Toronto, Canada</div>
-            <p class="paper-desc">Built a data-curation and relevance-evaluation framework for enterprise AI Search using LLM-assisted labeling and A/B benchmarks. Evaluated embedding models, cross-encoder rerankers, and retrieval/ranking configurations; trained and evaluated L2-stage rerankers before downstream post-ranking.</p>
+            <div class="exp-entry">
+              <div class="exp-role"><strong>Research Engineer, AI Search &nbsp;/&nbsp; Applied Research Scientist</strong></div>
+              <div class="exp-meta"><span class="exp-date">March 2025 &ndash; Present</span> &nbsp;|&nbsp; Toronto &amp; Montreal, Canada</div>
+              <ul class="exp-bullets">
+                <li>Built a search data-curation and relevance-evaluation framework for enterprise-specific AI Search, using LLM-assisted labeling and A/B benchmarks to assess search quality across datasets.</li>
+                <li>Evaluated embedding models, cross-encoder rerankers, and alternative retrieval/ranking configurations on search benchmarks to identify effective components for integration into the search stack.</li>
+                <li>Trained and evaluated L2-stage rerankers to improve candidate quality before results are passed to downstream post-rankers.</li>
+                <li>Applied supervised fine-tuning (SFT) with LoRA to Llama 3.2 3B, a small language model (SLM), for invoice information extraction; evaluated key-field and line-item extraction performance.</li>
+                <li>Developed and benchmarked a agentic extraction workflow for very long tables in multi-page enterprise documents, using page-level row summaries and bounded chunks to handle context limits; analyzed failures to guide improvements.</li>
+                <li>Co-authored a patent application for an algorithm to locate multi-line information in complex document layouts.</li>
+              </ul>
+            </div>
           </div>
         </div>
         <div class="misc-row">
           <div class="org-media"><img src="images/servicenow_logo.png" alt="ServiceNow logo" loading="lazy"></div>
           <div class="misc-links">
-            <div><strong>Applied Research Scientist</strong></div>
-            <div>March 2025 - September 2025 &nbsp;|&nbsp; Montreal, Canada</div>
-            <p class="paper-desc">Fine-tuned Llama 3.2 3B with LoRA for invoice information extraction, developed and benchmarked a chunked workflow for long tables in multi-page documents, and co-authored a patent application for locating multi-line information in complex layouts.</p>
-          </div>
-        </div>
-        <div class="misc-row">
-          <div class="org-media"><img src="images/servicenow_logo.png" alt="ServiceNow logo" loading="lazy"></div>
-          <div class="misc-links">
-            <div><strong>Applied Research Scientist Intern</strong></div>
-            <div>May 2024 - October 2024 &nbsp;|&nbsp; Montreal, Canada</div>
-            <p class="paper-desc">Developed synthetic multimodal, layout-aware invoices for model fine-tuning and fine-tuned LILT for PII redaction on invoices.</p>
+            <div class="exp-entry">
+              <div class="exp-role"><strong>Applied Research Scientist Intern</strong></div>
+              <div class="exp-meta"><span class="exp-date">May 2024 &ndash; October 2024</span> &nbsp;|&nbsp; Montreal, Canada</div>
+              <ul class="exp-bullets">
+                <li>Developed a synthetic data-generation method for multimodal, layout-aware invoices to increase document diversity for model fine-tuning.</li>
+                <li>Fine-tuned LILT, a layout-aware multimodal transformer, for PII redaction on invoices to support privacy workflows.</li>
+              </ul>
+            </div>
           </div>
         </div>
         <div class="misc-row">
           <div class="org-media"><img src="images/shl_labs.png" alt="SHL logo" loading="lazy"></div>
           <div class="misc-links">
-            <div><strong>Research Intern</strong></div>
-            <div>January 2023 - July 2023 &nbsp;|&nbsp; Gurgaon, India</div>
-            <p class="paper-desc">Evaluated AI-generated text detection with GPT-2 perplexity and GLTR token-rank features, with findings published in an SHL Labs blog post. Fine-tuned encoder-only and encoder-decoder models for personalized follow-up question generation in an AI-based virtual interviewer.</p>
-            <div><strong>Research Intern</strong></div>
-            <div>May 2022 - July 2022 &nbsp;|&nbsp; Gurgaon, India</div>
-            <p class="paper-desc">Implemented and evaluated transformer-based off-topic essay detection and an adversarial attack pipeline for evaluating automated essay-scoring models.</p>
-            <div><strong>AI Intern</strong></div>
-            <div>December 2021 - March 2022 &nbsp;|&nbsp; Gurgaon, India</div>
-            <p class="paper-desc">Developed a BERT-based intent classifier with Mahalanobis-distance out-of-domain detection, achieving 97% weighted F1 for in-domain classification and 98% AUROC for out-of-domain detection.</p>
+            <div class="exp-entry">
+              <div class="exp-role"><strong>Research Intern</strong></div>
+              <div class="exp-meta"><span class="exp-date">January 2023 &ndash; July 2023</span> &nbsp;|&nbsp; Gurgaon, India</div>
+              <ul class="exp-bullets">
+                <li>Evaluated AI-generated text detection using GPT-2 perplexity and GLTR token-rank features; published findings on the <a href="https://www.shl.com/resources/by-type/blog/2023/the-battle-of-the-pens-insights-into-detecting-ai-generated-text/">SHL blog</a>.</li>
+                <li>Fine-tuned encoder-only and encoder&ndash;decoder models for personalized follow-up question generation in an AI-based virtual interviewer, and evaluated generated questions using annotated examples.</li>
+              </ul>
+            </div>
+            <div class="exp-entry">
+              <div class="exp-role"><strong>Research Intern</strong></div>
+              <div class="exp-meta"><span class="exp-date">May 2022 &ndash; July 2022</span> &nbsp;|&nbsp; Gurgaon, India</div>
+              <ul class="exp-bullets">
+                <li>Implemented and evaluated transformer-based off-topic essay detection; developed an adversarial attack pipeline to assess the robustness of automated essay-scoring models.</li>
+              </ul>
+            </div>
+            <div class="exp-entry">
+              <div class="exp-role"><strong>AI Intern</strong></div>
+              <div class="exp-meta"><span class="exp-date">December 2021 &ndash; March 2022</span> &nbsp;|&nbsp; Gurgaon, India</div>
+              <ul class="exp-bullets">
+                <li>Developed a BERT-based intent classifier with Mahalanobis-distance out-of-domain detection (97% weighted F1 for in-domain classification; 98% AUROC for out-of-domain detection).</li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>

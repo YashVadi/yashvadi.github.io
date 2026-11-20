@@ -237,10 +237,14 @@ h2 {
   background-color: var(--highlight-bg);
 }
 
-.papers {
+.papers,
+.misc {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
+}
+
+.papers {
   margin-top: 10px;
 }
 
@@ -312,6 +316,36 @@ h2 {
 
 .paper-desc {
   margin: 14px 0 0;
+}
+
+.exp-entry + .exp-entry {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+
+.exp-meta {
+  color: var(--text-muted);
+}
+
+.exp-date {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.exp-bullets {
+  margin: 8px 0 0;
+  padding-left: 18px;
+  list-style-type: disc;
+}
+
+.exp-bullets li {
+  margin-bottom: 5px;
+  line-height: 1.45;
+}
+
+.exp-bullets li:last-child {
+  margin-bottom: 0;
 }
 
 .one {
